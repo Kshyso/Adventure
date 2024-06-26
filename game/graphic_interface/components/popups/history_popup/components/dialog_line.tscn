@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7oh8wh1feer8"]
+
+[ext_resource type="FontFile" uid="uid://cw7duqvokfurh" path="res://game/graphic_interface/fonts/monkeyisland_1991.ttf" id="1_ntsq8"]
+
+[node name="DialogLine" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("1_ntsq8")
+bbcode_enabled = true
+text = "Popochiu: Hi!"
+fit_content = true
