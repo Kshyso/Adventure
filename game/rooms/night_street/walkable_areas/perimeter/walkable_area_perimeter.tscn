@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbes47mwiqhw3"]
+
+[ext_resource type="Script" path="res://game/rooms/night_street/walkable_areas/perimeter/walkable_area_perimeter.gd" id="1_e2i83"]
+
+[node name="Perimeter" type="Node2D"]
+script = ExtResource("1_e2i83")
+script_name = "Perimeter"
+description = "Perimeter"
