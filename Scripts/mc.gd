@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed : float = 200.0
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and event.is_pressed():
 		#print(event.global_position)
 		$NavigationAgent2D.target_position = event.global_position
 		#print($NavigationAgent2D.get_next_path_position())
