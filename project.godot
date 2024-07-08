@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
+[dialogue_manager]
+
+general/balloon_path="res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn"
+
 [display]
 
 window/size/viewport_width=1536

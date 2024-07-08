@@ -1,7 +1,5 @@
 extends InteractComponent
 
-var dialogue: String = "I am doggy dog!"
-
 func interact():
-	print(dialogue)
+	DialogueManager.show_dialogue_balloon(load("res://Dialogues/Test.dialogue"), "doggy")
 	emit_signal("interacted")
