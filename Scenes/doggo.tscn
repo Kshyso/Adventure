@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cic68jjlmvsy"]
+
+[ext_resource type="Texture2D" uid="uid://4ur4whu17aih" path="res://Textures/DOGSO0.png" id="1_e6g3b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e47jk"]
+radius = 3.0
+height = 28.0
+
+[node name="Doggo" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("1_e6g3b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_e47jk")

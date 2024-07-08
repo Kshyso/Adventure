@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdxruj31kou8n"]
+
+[ext_resource type="Texture2D" uid="uid://uappywy1datw" path="res://Textures/city.png" id="1_yq3kn"]
+[ext_resource type="PackedScene" uid="uid://br2ktid3b0gi0" path="res://Scenes/mc.tscn" id="2_d6ce7"]
+[ext_resource type="PackedScene" uid="uid://bctkkckilg5pd" path="res://Scenes/lamp.tscn" id="3_tf4vy"]
+[ext_resource type="Texture2D" uid="uid://cq4uhossjrnx4" path="res://Textures/light_point.png" id="4_mmmon"]
+[ext_resource type="PackedScene" uid="uid://cic68jjlmvsy" path="res://Scenes/doggo.tscn" id="5_31qad"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_a5jh3"]
+vertices = PackedVector2Array(374, 110, 374, 206, 10, 206, 10, 103)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 93, 0, 216, 384, 216, 384, 101)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="NightStreet" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yq3kn")
+centered = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.47451, 0.47451, 0.643137, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(295, 24)
+scale = Vector2(0.574074, 0.574074)
+color = Color(0.709804, 0.803922, 1, 1)
+energy = 3.0
+texture = ExtResource("4_mmmon")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_a5jh3")
+
+[node name="MC" parent="." instance=ExtResource("2_d6ce7")]
+position = Vector2(45, 159)
+
+[node name="Lamp" parent="." instance=ExtResource("3_tf4vy")]
+position = Vector2(61, 116)
+
+[node name="Lamp2" parent="." instance=ExtResource("3_tf4vy")]
+position = Vector2(196, 118)
+
+[node name="Lamp3" parent="." instance=ExtResource("3_tf4vy")]
+position = Vector2(341, 120)
+
+[node name="Doggo" parent="." instance=ExtResource("5_31qad")]
+position = Vector2(317, 115)

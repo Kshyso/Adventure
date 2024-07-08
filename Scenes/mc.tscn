@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://br2ktid3b0gi0"]
+
+[ext_resource type="Script" path="res://Scripts/mc.gd" id="1_87nvs"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_idru0"]
+load_path = "res://.godot/imported/PC Computer - Omori - Sunny.png-fa22e5a64d8b4c58184b3be58a78957d.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7t2n"]
+radius = 6.08276
+
+[node name="MC" type="CharacterBody2D"]
+script = ExtResource("1_87nvs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+texture = SubResource("CompressedTexture2D_idru0")
+hframes = 4
+vframes = 4
+frame = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_a7t2n")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
