@@ -1,5 +1,5 @@
 extends Area2D
-class_name InteractComponent
+class_name Interactable
 
 signal interacted
 
@@ -14,6 +14,11 @@ func _ready() -> void:
 	self.input_event.connect(_on_input_event)
 	self.mouse_entered.connect(_on_mouse_entered)
 	self.mouse_exited.connect(_on_mouse_exited)
+	DialogueManager.dialogue_ended.connect(_on_dialogue_manager_dialogue_ended)
+
+func _on_dialogue_manager_dialogue_ended(_resource: DialogueResource) -> void:
+	print("move")
+	player.can_move = true
 
 # Signal handler for input events
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
@@ -34,9 +39,11 @@ func interact() -> void:
 func _on_mouse_entered() -> void:
 	if highlight_on_hover:
 		$"../Sprite2D".modulate = Color(2, 2, 2)  # Example highlight color
+		Input.set_default_cursor_shape(Input.CURSOR_POINTING_HAND)
 
 func _on_mouse_exited() -> void:
 	$"../Sprite2D".modulate = Color(1, 1, 1)  # Reset color
+	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 func _process(_delta) -> void:
 	if waiting_for_player and player:

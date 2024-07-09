@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cic68jjlmvsy"]
+[gd_scene load_steps=7 format=3 uid="uid://cic68jjlmvsy"]
 
 [ext_resource type="Texture2D" uid="uid://4ur4whu17aih" path="res://Textures/DOGSO0.png" id="1_e6g3b"]
 [ext_resource type="PackedScene" uid="uid://bqa2dyn2bf4d6" path="res://Scenes/interactable.tscn" id="2_utm00"]
-[ext_resource type="Script" path="res://Scripts/doggy.gd" id="3_7imlo"]
+[ext_resource type="Script" path="res://Scripts/InteractDialog.gd" id="3_t6ose"]
+[ext_resource type="Resource" uid="uid://d0y43mogkyalx" path="res://Dialogues/Test.dialogue" id="4_7pcmo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e47jk"]
 radius = 1.0
@@ -24,7 +25,9 @@ rotation = -1.5708
 shape = SubResource("CapsuleShape2D_e47jk")
 
 [node name="Interactable" parent="." instance=ExtResource("2_utm00")]
-script = ExtResource("3_7imlo")
+script = ExtResource("3_t6ose")
+dialog_file = ExtResource("4_7pcmo")
+title = "doggy"
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactable"]
 position = Vector2(-1, -5)
