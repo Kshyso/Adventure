@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @export var can_move: bool = true  # Flag to control if the player can move
 
+var direction: Vector2
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		#print(event.global_position)
@@ -12,7 +13,7 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(_delta: float) -> void:
 	# Calculate the direction to the target position
-	var direction: Vector2 = ($NavigationAgent2D.get_next_path_position() - global_position).normalized()
+	direction = ($NavigationAgent2D.get_next_path_position() - global_position).normalized()
 	# Calculate the distance to the target position
 	var distance: float = global_position.distance_to($NavigationAgent2D.get_next_path_position())
 	
@@ -23,3 +24,9 @@ func _physics_process(_delta: float) -> void:
 
 	# Optional: print the current position
 	#print("Current Position: ", global_position)
+
+func _process(_delta: float) -> void:
+	if direction.x > 0:
+		$Sprite2D.flip_h = false
+	elif direction.x < 0:
+		$Sprite2D.flip_h = true
