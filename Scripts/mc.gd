@@ -19,14 +19,13 @@ func _physics_process(_delta: float) -> void:
 	
 	# Move the character towards the target position at a constant speed
 	if distance > 2.0 and can_move:  # Check if we are close enough to the target position
+		if direction.x < 0:
+			$Sprite2D.flip_h = true
+		elif direction.x > 0:
+			$Sprite2D.flip_h = false
 		velocity = direction * speed
 		move_and_slide()
 
 	# Optional: print the current position
 	#print("Current Position: ", global_position)
-
-func _process(_delta: float) -> void:
-	if direction.x > 0:
-		$Sprite2D.flip_h = false
-	elif direction.x < 0:
-		$Sprite2D.flip_h = true
+	

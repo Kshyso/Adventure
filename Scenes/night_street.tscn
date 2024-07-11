@@ -1,16 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdxruj31kou8n"]
+[gd_scene load_steps=8 format=3 uid="uid://bdxruj31kou8n"]
 
 [ext_resource type="Texture2D" uid="uid://uappywy1datw" path="res://Textures/city.png" id="1_yq3kn"]
 [ext_resource type="PackedScene" uid="uid://br2ktid3b0gi0" path="res://Scenes/mc.tscn" id="2_d6ce7"]
 [ext_resource type="PackedScene" uid="uid://bctkkckilg5pd" path="res://Scenes/lamp.tscn" id="3_tf4vy"]
 [ext_resource type="Texture2D" uid="uid://cq4uhossjrnx4" path="res://Textures/light_point.png" id="4_mmmon"]
 [ext_resource type="PackedScene" uid="uid://cic68jjlmvsy" path="res://Scenes/doggo.tscn" id="5_31qad"]
+[ext_resource type="AudioStream" uid="uid://1d42sehydp2m" path="res://Music/CityNight.ogg" id="6_17bkr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_a5jh3"]
-vertices = PackedVector2Array(374, 110, 374, 206, 10, 206, 10, 103)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, 93, 0, 216, 384, 216, 384, 101)])
+vertices = PackedVector2Array(351, 125, 351, 115, 378, 105, 378, 211, 71, 121, 186, 113, 186, 123, 5, 211, 64, 123, 71, 111, 196, 111, 206, 123, 331, 115, 331, 125, 199, 125, 206, 113, 344, 127, 338, 127, 193, 125, 58, 123, 51, 121, 5, 99, 51, 111, 341, 113, 61, 109)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(5, 4, 9, 10), PackedInt32Array(11, 12, 13, 7, 14), PackedInt32Array(12, 11, 15), PackedInt32Array(16, 0, 3), PackedInt32Array(16, 3, 7, 17), PackedInt32Array(13, 17, 7), PackedInt32Array(18, 14, 7), PackedInt32Array(6, 18, 7), PackedInt32Array(19, 8, 7), PackedInt32Array(20, 19, 7), PackedInt32Array(20, 7, 21, 22), PackedInt32Array(2, 1, 23), PackedInt32Array(21, 2, 23, 12, 10), PackedInt32Array(24, 22, 21), PackedInt32Array(10, 9, 24), PackedInt32Array(12, 15, 10), PackedInt32Array(21, 10, 24)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 94, 0, 216, 383, 216, 384, 101)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 5.0
 
 [node name="NightStreet" type="Node2D"]
 y_sort_enabled = true
@@ -30,19 +32,25 @@ energy = 3.0
 texture = ExtResource("4_mmmon")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_a5jh3")
+
+[node name="Lamp" parent="NavigationRegion2D" instance=ExtResource("3_tf4vy")]
+position = Vector2(61, 116)
+
+[node name="Lamp2" parent="NavigationRegion2D" instance=ExtResource("3_tf4vy")]
+position = Vector2(196, 118)
+
+[node name="Lamp3" parent="NavigationRegion2D" instance=ExtResource("3_tf4vy")]
+position = Vector2(341, 120)
 
 [node name="MC" parent="." instance=ExtResource("2_d6ce7")]
 position = Vector2(45, 159)
 
-[node name="Lamp" parent="." instance=ExtResource("3_tf4vy")]
-position = Vector2(61, 116)
-
-[node name="Lamp2" parent="." instance=ExtResource("3_tf4vy")]
-position = Vector2(196, 118)
-
-[node name="Lamp3" parent="." instance=ExtResource("3_tf4vy")]
-position = Vector2(341, 120)
-
 [node name="Doggo" parent="." instance=ExtResource("5_31qad")]
 position = Vector2(317, 115)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_17bkr")
+volume_db = -30.0
+autoplay = true

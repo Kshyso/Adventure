@@ -15,3 +15,9 @@ scale = Vector2(0.935185, 0.5625)
 color = Color(1, 0.694118, 0.431373, 1)
 energy = 2.0
 texture = ExtResource("2_ihh0w")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(-1.66667, -1)
+scale = Vector2(1.66667, 1)
+polygon = PackedVector2Array(-2, 2, -2, 0, 1, -1, 4, 0, 4, 2, 2, 3, 0, 3)
